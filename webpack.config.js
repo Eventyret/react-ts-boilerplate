@@ -1,8 +1,11 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
-  entry: './src/test.tsx',
+  entry: {
+    popup: path.resolve('src/popup/popup.tsx')
+  },
   module: {
     rules: [
       {
@@ -20,13 +23,18 @@ module.exports = {
           to: path.resolve('dist')
         }
       ]
+    }),
+    new HtmlPlugin({
+      title: 'React Extension',
+      filename: 'popup.html',
+      chunks: ['popup']
     })
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
   },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.resolve('dist')
   }
 };
