@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './options.css';
+
 const test = <div>Hello world</div>;
 
 const root = document.createElement('div');
