@@ -13,5 +13,5 @@
     "default_title": "React Extension",
     "default_icon": "icon.png"
   },
-  "options": "options.html"
+  "options_page": "options.html"
 }
